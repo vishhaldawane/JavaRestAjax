@@ -3,22 +3,25 @@ package com.java.exceptions;
 public class CarTest {
 	public static void main(String[] args) {
 
-		CarKey myKey = new CarKey("HondaKey");
-		Car myCar = new Car("HondaCity");
+		CarKey myKey = new CarKey("HC1234");
+		Car myCar = new Car("HondaCity","HC1234");
 		
 		myCar.openTheCar(myKey);
 		myCar.shortDrive();
 		myCar.lockTheCar(myKey);
 	}
-}
+} 
 class Key {
 	
 }
 class CarKey extends Key {
-	String keyName;
+	private String keyName;
 	public CarKey(String string) {
 		keyName=string;
 	} //isA
+	public String getKeyName() {
+		return keyName;
+	}
 }
 
 class Lock {
@@ -27,29 +30,41 @@ class Lock {
 
 class CarLock extends Lock {
 	
-	String carLockName;
+	private String carLockName;
 		
-	public CarLock(String carLockName) {
-		super();
-		this.carLockName = carLockName;
+	public void setCarLockName(String name) {
+		carLockName = name;
 	}
 	
 	void lockIt(CarKey theCarKey) { //usesA  - use the key
-		System.out.println("getting key credentials mapped with lock.."+theCarKey.keyName);
-		System.out.println("Locking the Car...");
+		System.out.println("getting key credentials mapped with lock.."+theCarKey.getKeyName());
+		if(theCarKey.getKeyName().equals(carLockName)) {
+			System.out.println("Locking the Car...");
+		}
+		else {
+			System.out.println("Pairing failed..unable to lockIt..");
+		}
 	}
+	
 	void unlockIt(CarKey theCarKey) { // usesA - use the key
 		System.out.println("getting the key credentials mapped with lock..");
-		System.out.println("Unlocking the Car...");
+		
+		if(theCarKey.getKeyName().equals(carLockName)) {
+			System.out.println("UnLocking the Car...");
+		}
+		else {
+			System.out.println("Pairing failed..unable to unLockIt..");
+		}
 	}
 }
 class Car
 {
-	private CarLock carLock = new CarLock("Lock"); //hasA
+	private CarLock carLock = new CarLock(); //hasA
 	private String carName;
 	
-	public Car(String string) {
+	public Car(String string, String lockPattern) {
 		this.carName = string;
+		carLock.setCarLockName(lockPattern);
 	}
 	
 	void openTheCar(CarKey carKey) {
@@ -68,3 +83,39 @@ class Car
 		}
 	}
 }
+/*
+
+Key						  Lock		
+|							|			
+CarKey					CarLock
+ |							|
+ ---------				---------------------------------------------
+ |		  |				|			|			|			    |
+ keyName getKeyname()	lockName  setLockName() lockIt(CarKey)  unLockIt(CarKey)
+ 		 
+ 			
+					Car
+					|
+	----------------------------------------------------------------------
+		|					|								|	    |
+		String  carName		Car("HondaCity","Honda1234") openCar() closeCar()
+		CarLock carLock 
+				
+					
+	Automatic door locking system - lock is already engraved inside the door
+
+
+	manually locking system - Godrej lock and key [ should be together ]
+
+
+
+
+
+
+
+
+
+
+
+
+*/
