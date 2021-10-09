@@ -11,17 +11,17 @@ import java.util.Iterator;
  * 
  * vlc media player - playlist - add song the song in it, twice 
  * 
+ * 		---------			   name   logType    atwhatTime duration
+ * 	0	|  100	---------> 100 "Julie","missed"
+ * 		---------					 name   logType    atwhatTime duration
+ * 	1	|  200	--------------->200	"Julia","recieved"
  * 		---------
- * 	0	|	10	|
+ * 	2	|  300	---------> 300 flno	flightname	source destn
  * 		---------
- * 	1	|  33	|
- * 		---------
- * 	2	|   55	|
- * 		---------
- * 	3	|	30 |
- * 		---------
- * 	4	|		|
- * 		---------
+ * 	3	|  250  =============>  name   logType    atwhatTime duration
+ * 		---------			 250	"John","recieved"
+ * 	4	|  60	-------->"sachin tendulakar"
+ * 		---------			60
  * 		|		|
  *           ^
   		    / \	
@@ -54,7 +54,7 @@ class Flight { }
 public class CollectionTest {
 	public static void main(String[] args) {
 		
-		ArrayList myList = new ArrayList(); //container = Glass
+		ArrayList<PhoneLog> myList = new ArrayList<PhoneLog>(); //container = Glass
 		System.out.println("=>Container is ready...");
 		
 		PhoneLog log1 = new PhoneLog("Julie","missed",LocalDateTime.of(2021, 10, 9, 10, 30, 33),0);
@@ -66,23 +66,28 @@ public class CollectionTest {
 		//References to generic type ArrayList<E> should be parameterized
 		myList.add(log1); //content is added - ButterMilk
 		myList.add(log2);
-		myList.add(new Flight());
-		myList.add(log3);
-		myList.add("sachin tendulakar");
-		myList.add(log4);
-		myList.add(100);
 		myList.add(log5);
-		myList.add("Lata mangeshkar");
+	//	myList.add(new Flight());
+		myList.add(log3);
+		//myList.add("sachin tendulakar");
+		myList.add(log4);
+	//	myList.add(100);
+		myList.add(log5);
+		myList.add(log3);
+	//	myList.add("Lata mangeshkar");
 		
 		System.out.println("=>Added contents in the container...");
 		
-		Iterator myIter = myList.iterator(); // iterator - Straw
+		Iterator<PhoneLog> myIter = myList.iterator(); // iterator - Straw
 		System.out.println("=>Got the iterator...");
 		
 		//a sag is given - thorns  petal chocolates pen earasers sharpner
 		while(myIter.hasNext()) {
 			
-			Object obj = myIter.next(); //let the obj hold the item 
+			PhoneLog value =  myIter.next();
+			System.out.println("value : "+value);
+			
+			/*Object obj = myIter.next(); //let the obj hold the item 
 			
 			
 			if(obj instanceof Integer) {
@@ -96,7 +101,7 @@ public class CollectionTest {
 			else if(obj instanceof String) {
 				String str = (String) obj;
 				System.out.println("String is : "+str);
-			}
+			}*/
 		}
 		
 	}
