@@ -1,0 +1,17 @@
+package com.java.reflection;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+@Retention(RUNTIME)
+//@Target(ElementType.FIELD)
+public @interface DesignedBy {
+
+	String developer();
+
+	double version();
+
+}
