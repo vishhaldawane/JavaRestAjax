@@ -1,5 +1,5 @@
 body {
-	background-image: url('airport2.jpeg');
+	background-image: url('airportx.jpeg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -18,6 +18,25 @@ table {
 	margin-right: auto;
 	background-color: #FFFFE0;
 }
+
+#showflights {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: orange;
+}
+
+#register {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: green;
+}
+
+/*
+.mydiv {
+	background-color: red;
+}
+*/
+
 tR {
 	background-color: #ffffff;	
 }

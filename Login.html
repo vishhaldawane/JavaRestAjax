@@ -2,30 +2,83 @@
 <head>
 	<link rel="stylesheet" href="airline.css"> </link>
 </head>
+
+<script>
+		//alert('alert1 is here');
+		//console.log('alert2 is here');
+		//document.write('alert3 is here');
+		
+		function validateLoginForm() {
+			
+			var uname = document.getElementById("username").value;
+			var upass = document.getElementById("userpass").value;
+			
+			if(uname == "") {
+				//alert('username cannot be blank');
+				document.getElementById("userErr").innerHTML='username cannot be blank';
+				
+				return false;
+			}
+			
+			if(upass == "") {
+				//alert('password cannot be blank');
+				document.getElementById("passErr").innerHTML='password cannot be blank';
+				
+				return false;
+			}
+			
+			return true;
+		}
+		function clearUserMsg() {
+			document.getElementById("userErr").innerHTML='';
+		}
+		
+		function clearPassMsg() {
+			document.getElementById("passErr").innerHTML='';
+		}
+		
+</script>
+	
 <body>
  
 	<h1>Airline Reservation System</h1>
 	<hl>
 	<h2> Login Here </h2>
 	
+	
+	
 	<form action="UserDashBoard.html">
 	<table>
 		<tr>
-			<td>Enter username </td> <td> <input type=text name=username> </td>
+			<td>
+				Enter username 
+			</td> 
+			<td> 
+				<input type=text id="username" onkeyup="clearUserMsg()"  name=username> <span id="userErr"></span>
+			</td>
 		</tr>
 		
 		<tr>
-			<td>Enter password </td> <td><input type=password name=userpass> </td>
+			<td>
+				Enter password 
+			</td> 
+			
+			<td>
+				<input type=password id="userpass" onkeyup="clearPassMsg()"  name=userpass> <span id="passErr"></span> 
+			</td>
+			
 		</tr>
 	
 		<tr>
-			<td colspan=2><input type=submit name=submit value="Login"></td> 
+			<td colspan=2><input type=submit name=submit onclick="return validateLoginForm()" value="Login"></td> 
 		</tr>
 
 		<tr>	
 			<td colspan=2> Not a member yet? <a href="Register.html">Register</a> here </td>
 		</tr>
 		
+		
+	
 		<tr>
 			<td colspan=2>Forgot password? <a href="ForgotPassword.html">Click</a> here </td>
 		</tr>
@@ -37,7 +90,7 @@
 	</table>
 	
 	</form>
-	<div style="text-align:center">
+	<div class="mydiv" style="text-align:center">
 		<a href="SearchFlights.html">Back to Home</a>
 	</div>
 </body>
