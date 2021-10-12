@@ -1,3 +1,13 @@
+
+/*
+validation on register.html
+validation on resetpassword.html
+validation on forgotpassword.html
+book now must be an image now
+a video clip must be played while showing flights
+journey date must be the future date
+
+*/
 body {
 	background-image: url('airportx.jpeg');
 	background-repeat: no-repeat;
