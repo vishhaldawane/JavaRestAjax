@@ -1,14 +1,52 @@
 <html>
+<head>
+	<link rel="stylesheet" href="airline.css"> </link>
+	
+	<!-- 
+		<style>
+			h1 {
+				color:green;
+			}
+		</style>
+	-->
+	
+</head>
+
+
+	<body>
+		
 	<h1>Airline Reservation System</h1>
+	
+	<!--  
+	<h1>Airline Reservation System2 : page level color</h1>
+	<h1 style="color:blue">Airline Reservation System3 : tag specified color</h1>
+	-->
+	
 	<hl>
 	<h2> Search Flights </h2>
 	
 	<form action="ShowFlights.html">
-		Enter source <input type=text name=source> <br>
-		Enter destination <input type=text name=source> <br>
-		Enter journey date <input type=date name=doj> <br>
-		<input type=submit name=submit value="Search Flights">
+		<table>
+		<tr>
+			<td>Enter source </td> 		<td><input type=text name=source> </td>
+		</tr>
+		
+		<tr>
+			<td>Enter destination</td> 	<td><input type=text name=source> </td>
+		</tr>
+		
+		<tr>
+			<td>Enter journey date</td> <td><input type=date name=doj> </td>
+		</tr>
+		
+		<tr>
+			<td><input type=submit name=submit value="Search Flights"> </td>
+		</tr>
+		
+		</table>
 	</form>
+	
+	</body>
 	
 </html>
 

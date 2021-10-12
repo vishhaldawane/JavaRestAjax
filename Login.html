@@ -1,17 +1,47 @@
 <html>
+<head>
+	<link rel="stylesheet" href="airline.css"> </link>
+</head>
+<body>
+ 
 	<h1>Airline Reservation System</h1>
 	<hl>
 	<h2> Login Here </h2>
 	
 	<form action="UserDashBoard.html">
-		Enter username <input type=text name=username> <br>
-		Enter password <input type=password name=userpass> <br>
+	<table>
+		<tr>
+			<td>Enter username </td> <td> <input type=text name=username> </td>
+		</tr>
+		
+		<tr>
+			<td>Enter password </td> <td><input type=password name=userpass> </td>
+		</tr>
 	
-		<input type=submit name=submit value="Login"><span>Not a member yet? <a href="Register.html">Register</a> here </span>
-		<br><span>Forgot password? <a href="ForgotPassword.html">Click</a> here </span>
-		<br><span>Reset password? <a href="ResetPassword.html">Click</a> here </span>
+		<tr>
+			<td colspan=2><input type=submit name=submit value="Login"></td> 
+		</tr>
+
+		<tr>	
+			<td colspan=2> Not a member yet? <a href="Register.html">Register</a> here </td>
+		</tr>
+		
+		<tr>
+			<td colspan=2>Forgot password? <a href="ForgotPassword.html">Click</a> here </td>
+		</tr>
+		
+		<tr>
+			<td colspan=2><span>Reset password? <a href="ResetPassword.html">Click</a> here </span></td>
+		</tr>
+		
+	</table>
+	
 	</form>
-	<a href="SearchFlights.html">Back to Home</a>
+	<div style="text-align:center">
+		<a href="SearchFlights.html">Back to Home</a>
+	</div>
+</body>
+
 </html>
 
 

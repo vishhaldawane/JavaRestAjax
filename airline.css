@@ -1,0 +1,29 @@
+body {
+	background-image: url('airport2.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+h1 {
+	color:blue;
+	text-align: center;
+}
+
+h2 {
+	color:red;
+	text-align: center;
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFE0;
+}
+tR {
+	background-color: #ffffff;	
+}
+tH {
+	background-color: #BDB76B;
+}
+a {
+	text-align: center;
+}

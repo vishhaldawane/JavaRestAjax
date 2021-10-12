@@ -1,18 +1,33 @@
 <html>
+<head>
+	<link rel="stylesheet" href="airline.css"> </link>
+</head>
+
+<body>
+ 
 	<h1>Airline Reservation System</h1>
 	<hl>
 	<h2> Register Here </h2>
 	
 	<form action="Login.html">
-		Enter username <input type=text name=username> <br>
-		Enter email <input type=email name=usermail> <br>
-		Enter password <input type=password name=usermail> <br>
-		Enter birthdate <input type=date name=userdob> <br>
+	<table>
+		<tr><td>Enter username </td><td><input type=text name=username> </td>
+		<tr><td>Enter email </td><td><input type=email name=usermail> </td>
+		<tr><td>Enter password </td><td><input type=password name=usermail> </td>
+		<tr><td>Enter birthdate </td><td><input type=date name=userdob> </td>
 		
 		
-		<input type=submit name=submit value="Register"><span>Already registered? <a href="Login.html">Login</a> here </span>
+		<tr> <td><input type=submit name=submit value="Register"> </td> </tr>
+		
+		<tr> <td colspan=2> Already registered? <a href="Login.html">Login</a> here <td> </tr>
+	</table>
+	
 	</form>
+	<div style="text-align:center">
 	<a href="SearchFlights.html">Back to Home</a>
+	</div>
+</body>
+
 </html>
 
 
