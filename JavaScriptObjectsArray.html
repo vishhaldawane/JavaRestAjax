@@ -29,26 +29,78 @@
 		//CONTROLLER 
 		//REST API - DATA - MODEL -   CRUD 
 		//java script is acting as a VIEW
-		mystaff = [
-			{ employeeNumber:101,employeeName:"Bruce",employeeSalary:5000,empImg:'bruce.jpeg' },
-			{ employeeNumber:102,employeeName:"James",employeeSalary:6000,empImg:'james.jpeg' },
-			{ employeeNumber:103,employeeName:"Steve",employeeSalary:7000,empImg:'steve.jpeg' }
+		
+		mydept = [
+			
+			{ 
+				deptNumber:10, deptName:"Accounts",deptLocation:'New York',
+				mystaff : [
+					{ employeeNumber:101,employeeName:"Bruce",employeeSalary:5000,empImg:'bruce.jpeg' },
+					{ employeeNumber:102,employeeName:"James",employeeSalary:6000,empImg:'james.jpeg' },
+					{ employeeNumber:103,employeeName:"Steve",employeeSalary:7000,empImg:'steve.jpeg' }
+				]
+			},
+
+			{ 
+				deptNumber:20, deptName:"IT",deptLocation:'New Jersey',
+				mystaff : [
+					{ employeeNumber:104,employeeName:"Jack",employeeSalary:2000,empImg:'bruce1.jpeg' },
+					{ employeeNumber:105,employeeName:"Jill",employeeSalary:3000,empImg:'james2.jpeg' },
+					{ employeeNumber:106,employeeName:"Jane",employeeSalary:4000,empImg:'steve3.jpeg' }
+				]
+			},
+
+			{ 
+				deptNumber:30, deptName:"Sales",deptLocation:'Chicago',
+				mystaff : [
+					{ employeeNumber:107,employeeName:"Reeta",employeeSalary:5000,empImg:'bruce4.jpeg' },
+					{ employeeNumber:108,employeeName:"Seeta",employeeSalary:6000,empImg:'james5.jpeg' },
+					{ employeeNumber:109,employeeName:"Geeta",employeeSalary:7000,empImg:'steve6.jpeg' }
+				]
+			},
+
+			{ 
+				deptNumber:40, deptName:"Operations",deptLocation:'Dallas',
+				mystaff : [
+					{ employeeNumber:110,employeeName:"Julie",employeeSalary:8000,empImg:'bruce7.jpeg' },
+					{ employeeNumber:111,employeeName:"Julia",employeeSalary:9000,empImg:'james8.jpeg' },
+					{ employeeNumber:112,employeeName:"Silvie",employeeSalary:9500,empImg:'steve9.jpeg' }
+				]
+			},
+
+			
 		];
 		
-		document.write('<table border=5 cellspacing=10 cellpadding=10> '+	
-				'<thead>	<th>Emp No.</th>	<th>Employee Name</th>'+
-				'<th>Emp Salary</th>'+
-			'</thead>');
 		
-		for(i=0;i<mystaff.length;i++) {
-			document.write('<tr>');
+		document.write('<table border=5 cellspacing=10 cellpadding=10> '+	
+				'<thead>	<th>Dept No.</th>	<th>Department Name</th>'+
+				'<th>Dept Location</th>'+
+			'</thead>');
+		for(i=0;i<mydept.length;i++) {
 			
-			document.write('<td>'+mystaff[i].employeeNumber +'</td>');
-			document.write('<td>'+mystaff[i].employeeName +'</td>');
-			document.write('<td>'+mystaff[i].employeeSalary +'</td>');
-			document.write('<td> <img src='+mystaff[i].empImg +' height=200 width=300></td>');
+				document.write('<tr>');
+					document.write('<td>'+mydept[i].deptNumber +'</td>');
+					document.write('<td>'+mydept[i].deptName +'</td>');
+					document.write('<td>'+mydept[i].deptLocation +'</td>');
+					//document.write('<td> <img src='+mydept[i].mystaff[j].empImg +' height=200 width=300></td>');
+				
+					document.write("<td>");
+			document.write('<table border=5 cellspacing=10 cellpadding=10> '+	
+					'<thead>	<th>Emp No.</th>	<th>Employee Name</th>'+
+					'<th>Emp Salary</th>'+
+				'</thead>');
+			for(j=0;j<mydept[i].mystaff.length;j++) {
+				document.write('<tr>');
+				document.write('<td>'+mydept[i].mystaff[j].employeeNumber +'</td>');
+				document.write('<td>'+mydept[i].mystaff[j].employeeName +'</td>');
+				document.write('<td>'+mydept[i].mystaff[j].employeeSalary +'</td>');
+			//	document.write('<td> <img src='+mydept[i].mystaff[j].empImg +' height=200 width=300></td>');
+				document.write('</tr>');
+				
+			}
+			document.write('</table>');
+			document.write("</td>");
 			document.write('</tr>');
-			
 		}
 		
 		document.write('</table>');
