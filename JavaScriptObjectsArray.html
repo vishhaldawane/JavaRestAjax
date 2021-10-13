@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<script>
+	myemp1 = { employeeNumber:101,employeeName:"John",employeeSalary:5000 }
+		document.write(myemp1.employeeNumber+' ');
+		document.write(myemp1.employeeName+ ' ');
+		document.write(myemp1.employeeSalary);
+		
+		function showEmp() {
+			document.getElementById("empno").innerHTML=myemp1.employeeNumber;
+			document.getElementById("empname").innerHTML=myemp1.employeeName;
+			document.getElementById("empsal").innerHTML=myemp1.employeeSalary;
+		}
+		
+		fruits=["Mango","Apple","Orange"];
+		
+		for(i=0;i<fruits.length;i++) {
+			
+			document.write('<h3>'
+						+ 
+					fruits[i] + 
+				'</h3>');
+		}
+		//MVC
+		//CONTROLLER 
+		//REST API - DATA - MODEL -   CRUD 
+		//java script is acting as a VIEW
+		mystaff = [
+			{ employeeNumber:101,employeeName:"Bruce",employeeSalary:5000,empImg:'bruce.jpeg' },
+			{ employeeNumber:102,employeeName:"James",employeeSalary:6000,empImg:'james.jpeg' },
+			{ employeeNumber:103,employeeName:"Steve",employeeSalary:7000,empImg:'steve.jpeg' }
+		];
+		
+		document.write('<table border=5 cellspacing=10 cellpadding=10> '+	
+				'<thead>	<th>Emp No.</th>	<th>Employee Name</th>'+
+				'<th>Emp Salary</th>'+
+			'</thead>');
+		
+		for(i=0;i<mystaff.length;i++) {
+			document.write('<tr>');
+			
+			document.write('<td>'+mystaff[i].employeeNumber +'</td>');
+			document.write('<td>'+mystaff[i].employeeName +'</td>');
+			document.write('<td>'+mystaff[i].employeeSalary +'</td>');
+			document.write('<td> <img src='+mystaff[i].empImg +' height=200 width=300></td>');
+			document.write('</tr>');
+			
+		}
+		
+		document.write('</table>');
+		
+	</script>
+<body>
+	<br>
+	Employee Number is <span id="empno"></span> <br>
+	Employee Name   is <span id="empname"></span> <br>
+	Employee Salary is <span id="empsal"></span> <br>
+	<button onclick="showEmp()">Show Employee</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<script>
+	myemp1 = { employeeNumber:101,employeeName:"John",employeeSalary:5000 }
+		document.write(myemp1.employeeNumber+' ');
+		document.write(myemp1.employeeName+ ' ');
+		document.write(myemp1.employeeSalary);
+		
+	
+		
+	
+	function showEmp() {
+		document.getElementById("empno").innerHTML=myemp1.employeeNumber;
+		document.getElementById("empname").innerHTML=myemp1.employeeName;
+		document.getElementById("empsal").innerHTML=myemp1.employeeSalary;
+	}
+	
+	</script>
+<body>
+	<br>
+	Employee Number is <span id="empno"></span> <br>
+	Employee Name   is <span id="empname"></span> <br>
+	Employee Salary is <span id="empsal"></span> <br>
+	<button onclick="showEmp()">Show Employee</button>
+</body>
+</html>
