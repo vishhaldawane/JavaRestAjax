@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <p>Before the script...</p>
+  <script>
+	//2001  2002  2003  2004 ....2009.2010 2011....2021
+	'use strict'; //<- enable new updates from 2009 onwards
+	
+	let age = 6; // take 16 as an example
+	if (age < 18) {
+  		welcome('first');               // \   (runs)
+ 		 function welcome(to) {    	//  |
+  		  alert("Hello!"+to);       	//  |  Function Declaration is available
+ 		 }                       	//  |  everywhere in the block where it's declared
+ 		 welcome('second');            //      (runs)
+	} 
+	else 
+	{		
+	  function welcome(to) {   alert("Greetings!"+to);  }
+	  welcome('third');
+	}
+// Here we're out of curly braces,
+// so we can not see Function Declarations made inside of them.
+welcome('fourth'); // Error: welcome is not defined
+  </script>
+
+  <p>...After the script.</p>
+
+</body>
+
+</html>

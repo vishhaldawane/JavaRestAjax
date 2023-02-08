@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+		
+  <p>Before the script...</p>
+
+  <script>
+	'use strict';  // TRY THIS ONE NOW
+	
+	let welcome;
+	
+	let age = prompt("What is your age?", 18);
+
+	// conditionally declare a function
+	if (age < 18) {
+		welcome=function welcome(to) {
+		    alert("Hello!"+to);
+  		}
+	} 
+	else { 
+		welcome=function welcome(to)  {
+		    alert("Greetings!"+to);
+		 }
+	}
+
+	welcome('vishal'); // Error: welcome is not defined
+
+  </script>
+
+  <p>...After the script.</p>
+
+</body>
+
+</html>
