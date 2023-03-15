@@ -1,0 +1,123 @@
+<html>
+<head>
+<script>
+
+var request;
+
+
+	function sendInfo()
+	{
+		var s=document.myform.source_curr.value;
+		console.log('s '+s);
+		
+		var t=document.myform.target_curr.value;
+		console.log('t '+t);
+		
+		var l=document.myform.load_factor.value;
+		console.log('l '+l);
+		
+		var dataToSend = {
+		        "sourceCurrency": 'ABC',
+		        "targetCurrency": 'PQR',
+		        "loadFactor": 0.55
+		 }
+		console.log('>>before data : '+JSON.stringify(dataToSend));
+		
+		dataToSend.sourceCurrency=s;
+		dataToSend.targetCurrency=t;
+		dataToSend.loadFactor=l;
+		
+		console.log('>>after data : '+JSON.stringify(dataToSend));
+				
+		var url='http://localhost:8080/RestAPI/rest/currencydb/add/';
+			
+		console.log('sendInfo: url : '+url);
+		if(window.XMLHttpRequest) { //non-microsoft
+			request=new XMLHttpRequest();
+		}
+		else if(window.ActiveXObject) { //Edge/IE
+			request=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+
+		try
+		{
+			request.onreadystatechange=getInfo;
+			request.open("POST",url,true);
+			request.setRequestHeader("Content-Type","application/json");
+			request.send(JSON.stringify(dataToSend));
+			
+		}
+		catch(e)
+		{
+			
+			alert("Unable to connect to server"+e);
+			
+		}
+		
+		
+	}
+
+
+	function getInfo()
+	{
+		if(request.readyState==0) {
+			console.log('request not initialized');
+		}
+		else {
+			console.log('request initialized');
+
+		}
+	
+		if(request.readyState==1) {
+			console.log('connected to the server');
+		}
+		else {
+			console.log('request initialized');
+
+		}
+	
+		//0 REQUEST TILL NOT INTIALIZED
+		//1 CONNECTED TO THE SERVER
+		//2 REQUEST IS RECIEVED BY TEH SERVER
+		//3 REQUEST IS PROCESSING
+		//4 REQUEST IS DONE AND RESPONSE IS READY
+		if(request.readyState==4) {//HAS 
+			console.log('status '+request.status);
+			var val=request.responseText;
+			document.getElementById('dataHere').innerHTML=val;
+		}
+		
+	}
+
+</script>
+</head>
+
+
+<body>
+    <marquee><h1>This is an example of ajax with database</h1></marquee>
+
+<form name="myform"> 
+	<input list="sources" name="source_curr"  >
+	<input list="targets" name="target_curr"  >
+	
+	<datalist id="sources">
+		<option value="INR">INR</option>
+		<option value="USD">USD</option>		
+	</datalist>
+
+	<datalist id="targets">
+		<option value="INR">INR</option>
+		<option value="USD">USD</option>
+		<option value="EUR">EUR</option>	
+		<option value="DIN">DIN</option>			
+	</datalist>
+	
+	<input type=text name="load_factor" value=0> <br>
+	<INput type=button value="Add NEW Currency" onclick="sendInfo()">
+</form>
+
+Status <span id="dataHere"> </span>
+
+
+</body>
+</html>
