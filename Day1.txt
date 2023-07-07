@@ -1,0 +1,523 @@
+
+
+
+		Java Programming Language
+
+		Language 
+		   |
+		purpose ? 
+	
+	how to start learning a language
+
+		listen		speak		read		write
+		|		|		|		|
+		concepts	concepts	concepts	programs
+		interaction/instrospection	+programs
+
+
+Quality of your attention and intention would decide the quality of the training
+
+
+				Java Technology
+					|
+		--------------------------------------------------
+		|			|			|
+		JSE			JEE			JME
+		Standard		Enterprise		Micro
+		|Core Java		|main Business
+	*Language fundamentals		|
+	*Classes and Objects	------------------------------------
+	*Constructor		|		|		|
+	*OOPS concepts		Session		Entity 		Message
+	*packages		  |Spring	|ORM		   |	
+	*exception handling   M1<--->M2,3,4..	-------------	SMS Mail Whatsapp
+	*multithreading	      |	     ||||||	|	|
+	Annotations	   Server  clients	BMP	CMP	
+	Reflection		|		Bean	 jdbc queries are automated
+	X file i/o	----------------	Managed
+	->JDBC		|		|	Persistence -> store Object on DB
+	|		stateless	statefull	jdbcs queries are manually
+	Adv Java					handled
+	|		airindia.com	book ticket	select/insert/update/delete
+	Socket programming
+	RMI
+			bookmyshow.com/app
+
+
+
+	0. Simple, no pointers, no need of any h/w background
+		no memory management, legacy syntax from C++
+	1. WORA/platform neutral
+		write once run anywhere
+	2. OOPS
+	3. Multithreaded - download, upload, print, spell checking, calcs
+
+	4. Robust - automatic garbage collection, exception handling
+	5. Secured - 100%, runs in a sandbox - it does not allow DMA
+	6. Dynamic - Account accObj = new Account();
+				accObj = new SavingsAccount();
+				accObj = new CurrentAccount();
+
+	7. Distributed   - Server		Client
+			  A.class		B.class
+
+			1		2		3	4	5
+	Vendor	    Intel		Sun		IBM	HP	Apple
+	|		|		|		|	|	|
+	CPU	       x86		SPARC		BB	hps	PowerPC/M1
+	|		|		|		|	|	|
+	OS	    MS-Windows		Solaris		AIX	hpUX	Macintosh
+			|		|		|	|	|
+	Compiler  TC++/BC/MSVisual	cc		cc	cc	cc
+			|  Studio	|		|	|	|
+	Source	---Abc.cpp ---copy-->	Abc.cpp		Abc.cpp .cpp	.cpp
+	|		|		|		|	|	|
+	Compile ---Abc.obj		Abc.o		Abc.o	Abc.o	Abc.o
+	|		|		|same as obj	|	|	|
+	Linker	   Abc.exe	   	Abc.out		Abc.out	Abc.out	Abc.out
+	|		|		|same as exe		
+	Run it     Running	  Running		Running	Running	Running
+
+
+	JDK - Java development kit
+			C:\program files\Java\jdk1.8.xxx> <== JDK 
+
+		javac -- java compiler
+		java  -- java interpreter
+
+	JRE - Java runtime environment - minimum environment to run the .class file
+
+
+	Server
+	|.class files are sent to the browser
+	|
+	|
+	Browser [ JRE enabled ] -java.exe must be there to help the browser
+			to run the .class files
+
+		
+
+	JVM - java Virtual machine to run your code
+
+		JIT		Byte code
+		Compiler ------	Verifier
+				|
+				|Class Loader
+				|
+				Execution Engine 
+				|  Runtime environment
+				|
+				Garbage Collector
+				   unused objects are declared/marked as garbage
+					
+	First Code of JPL
+
+	-------------------------
+	Minimum unit of JPL is to write a class
+
+
+	First.java
+	-----------
+	class First <-- First.class would be generated
+	{ <--- Start
+		public static void main(String args[])
+		{
+			System.out.println("Hello World of Java");
+		}
+	}  <-- End
+
+
+	javac First.java <-- compilation
+		|
+		what will it generate???? class file(s)
+		what would be the name of the class file(s)
+		ANS: as per the classes declared in the source code
+
+	
+	First.java (Source Code)
+		|
+		javac
+		|
+		First.class (Byte code)
+		|
+	java First (without extension )
+
+
+
+
+
+Every public class MUST be stored in its OWN file (.java file)
+
+
+
+
+Naming convention
+
+
+	ClassName : DriverManager, SystemSettings, DeviceDriver
+
+	fieldName : rollNumber, socialSecurityNumber, employeeNumber
+
+	methodName : setLookAndFeel(), withdraw(), transferFunds()
+
+	CONSTANT   : MAX, MIN, SPEED_OF_LIGHT, GRAVITY_OF_EARTH
+
+	packages   : com.kpit.usa, com.kpit.uk
+				no spaces in packages ( becuase directories can have spaces)
+
+				"new york"
+
+----------------------------------------------------------
+
+	Classes			vs			Objects
+
+   design of an object*				instance of a class*
+
+   a simple logical design			a concrete physical appearance
+						in the computer memory
+
+   blue print of a house			a real house!!!			
+   made on a paper with				as many as you can create
+   pencil/scale/stencil
+
+   field + methods				the real field, the real method
+   desinged in a container			code is loaded in the memory
+   called as class				to execute 
+   as a textual design
+
+   class SavingsAccount				SavingsAccount savObj1;
+   {						//its a reference to SavingsAccount
+	//STATE/FIELDS/NOUN
+	private int accountNumber;		savObj1 = new SavingsAccount();
+	private String accHolder;			  |	 |	
+	private float balance;			   Allocator	its a constructor
+						  to create 	to initialize the
+	//METHODS/ACTIONS/VERB			  the fields	fields
+	void withdraw(float amt){ 
+		balance -= amt;
+	}
+	void deposit(float amt) {
+		balance +=amt;
+	}
+   }
+
+
+	SavingsAccount savObj1 = new SavingsAccount();
+	SavingsAccount savObj2 = new SavingsAccount();
+	SavingsAccount savObj3 = new SavingsAccount();
+
+
+
+		STACK					HEAP
+		|					|
+		| (local values)			|(free store)
+		|					|
+						<------FIELDs of SavingsAccount->
+						accountNumber accHolder balance
+						---------------------------------
+						|	     |         |        |
+						---------------------------------
+		+---------------------------->  100
+		|
+		100  <-- value of savObj1		METHODS of SavingsAccount
+		savObj1
+							SavingsAccount()
+							withdraw(), deposit()
+
+						<------FIELDs of SavingsAccount->
+						accountNumber accHolder balance
+						---------------------------------
+						|	     |         |        |
+						---------------------------------
+		+---------------------------->  200
+		|
+		200  <-- value of savObj1		
+		savObj2
+
+
+
+						<------FIELDs of SavingsAccount->
+						accountNumber accHolder balance
+						---------------------------------
+						|	     |         |        |
+						---------------------------------
+		+---------------------------->  300
+		|
+		300  <-- value of savObj1		
+		savObj3
+
+
+
+	
+
+		savObj1.withdraw();
+		savObj2.withdraw();
+		savObj3.withraw();
+
+
+
+
+
+	is "sachin tedulkar " a class or an object?
+
+	it is neither the class nor the object
+	rather it is an attribute of the object
+
+
+
+	class Cricketer
+	{
+		int rank;
+		String cricketerName;
+		int age;
+		int score;
+
+	}
+
+
+	Cricketer crickObj1 = new Cricketer();
+		crickObj1.setDetails(1,"Sachin Tedulkar",14,500);
+
+
+
+	Arrays
+	-------
+
+		group of variables
+		of similar data types
+		stored in consecutive memory location
+		referred by a common name
+
+		limitation of an array
+			- cannot grow at runtime
+			- cannot shrink at runtime
+			
+
+
+	Arrays of Objects
+	--------------------
+
+		same way as of the primitives
+
+
+
+	Packages
+	---------
+
+		packages = directories
+		|		|
+		java		operating system
+				|
+				to organize files and folders
+					    |		 |
+					.class 		packages
+
+
+main-package			jungle
+				|
+		---------------------------------
+sub		|	|	|	|
+packages	cave	tree	house	river
+		|	|	|	   |
+classes		Tiger	Bird	FarmHouse Fish
+		Lion	Nest	Cat	  Frog
+
+		
+	Strongest	Stronger      Strong			Weakest
+	private		default	      protected			public	
+
+	1. public - available throughout the project/internet
+	2. private - only within the class where they are declared
+			not available even to the sub class to refer
+ 
+	3. protected - sub class can refer it, within same package(BengalTiger)
+		       sub class can refer it via extends  , outside package (WhiteTiger)
+		       sub class cannot refer it via the reference of Tiger (t.protectedB) error
+
+		      non-sub class can refer, within same package(Bear)
+		      non-sub class cannot refer, outside package (Monkey)
+
+		
+
+	4.          default <-- there is no such keyword as default
+				"same package" 
+			only available in the same package to sub-class(BengalTiger)/non-subclass(bear)
+
+			sub-class cannot refer it, outside package (WhiteTiger)
+			non-sub class cannot refer it, outside package (Monkey)
+
+
+
+
+innovate your own hierarchy of classes like the above example
+and try all the four access specifiers
+with package, import statements
+alongwith public,protected, private, default via sub-classes/non-subclasses
+
+				lecture	5%
+				reading	10%
+				audio/visual 20%
+				demo 30%
+				gd 50%
+				practice 75%
+				teach it to others 90%
+
+
+Teach to others
+
+
+
+	Constructor
+
+
+		it has the same name as of the "enclosing class"
+
+	class Flight
+	{
+		int flightNumber; //DATA
+		String flightName;
+		String source;
+		String destination;
+
+		void fly() { }	// FUNCTION/METHOD
+
+		//here a default constructor exists!!!!!
+		
+		
+	}
+
+
+				constructor 
+				|it has the same name as of the enclosing class
+	Flight flightObj = new Flight(); <-- it is used to initialize the data of the object
+	|	 |	   |	
+	class	reference allocator <-- it is following the allocator
+
+			if the allocator is failed, the constructor must fail
+			if the constructor is failed, the allocated data is rolled back
+
+
+		a constructor is invoked during object creation process
+		it is invoked only once per object reference
+		it cannot be invoked post to the construction
+		it cannot be invoked manually using the reference
+
+		flightObj.Flight(); //not possible | error
+
+		it can take arguments
+		and it can be overloaded
+
+
+	
+	OOPS
+	-----
+
+		Object Oriented Programming System
+
+
+	1. Abstraction | FOR THE USER | END USER | CUSTOMER
+
+
+		- hiding the complexity of an object
+		- while hiding, provide the USAGE of the object via accessible(public)functions
+		- it is a "what is?" part of an object | USAGE of an object
+
+		- hiding the data | data abstraction | total cash inside the ATM is hidden
+		- hiding the methods | printing/logging/counter functionality is hidden
+		- hiding the inner/nested classes | some internal components are hidden
+
+			What is an ATM?
+				- *** withdraw cash!!! ***
+				- change pin
+				- mini statement
+				- check balance
+				- cheque book request
+
+	2. Encapsulation | TASK OF THE DEVELOPER | BACKEND TEAM
+		- it is a "How is it?" part of an object
+			How the ATM is functioning???
+				- how the cash is dispensed???
+				- how the pin is changed?
+				- how the mini statement is generated?
+				- how the balance is checked?
+				- how the cheque book request is processed?
+
+
+
+		class ATM
+		{
+			private double totalCash; //data abstraction
+			private int numberOfCustomersHit;
+			
+			private void dispenseCash(float amt) { } //procedural abstraction
+
+			private class SecurityManager() {  // class abstraction
+					void secureTheUser() { }
+					void logTheUser() { }
+			}		
+
+			public void withdraw(float amt) { //PROVIDE the USAGE |public functions
+				..
+				SecurityManager secMan = new SecurityManager();
+				secMan.secureTheUser();
+				secMan.logTheUser();
+				dispenseCash(amt);
+				...
+				secMan.releaseTheSecurity();
+			}
+		}
+
+
+		Mountain vs Valley
+		|		|
+	     co - created at the same time
+
+
+	3. Polymorphism
+
+		ability  of a business entity to have multiple forms
+
+		a. function overloading - early binding 
+			- we can redefine a function with same name provided
+				i) with number of arguments
+				ii) type of arguments
+				iii) sequence of type of arguments
+
+		b. function overriding  - late binding
+		c. operator overloading* - not in java 
+
+		misnomer - static polymorphism
+				runtime polymorhpishm 
+
+			polymorphism is always/by default dynamic [ runtime ]
+
+			
+
+	4. Inheritance
+
+	5. Object communication
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
