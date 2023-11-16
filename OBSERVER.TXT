@@ -1,0 +1,18 @@
+<p>http-observable works!</p>
+<table border=5 cellspacing=10 cellpadding=10>
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let user of userArray">
+        <td>{{user.userId}}</td>
+        <td>{{user.id}}</td>
+        <td>{{user.title}}</td>
+        <td>{{user.body}}</td>
+    </tr>
+</table>
+
